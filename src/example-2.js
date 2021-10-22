@@ -1,29 +1,16 @@
-import anime from "animejs";
+import { revealHeading } from "./helper";
 
-const reveal = async () => {
-  const headline = document.querySelector(".uiui.example-2");
+const config = {
+  translateY: ["100%", 0],
+  translateX: [40, 0],
+  translateZ: 0,
+  opacity: [0, 1],
+};
+export const reveal = async () => {
+  const headline = document.querySelector(".uiui-headline.example-2");
   const parts = headline.textContent.split(" ");
   headline.innerHTML = parts.map((p) => `<span>${p}</span>`).join(" ");
-  for (const child of headline.children) {
-    await revealHeading(child, 10);
+  for (const elem of headline.children) {
+    await revealHeading({ elem, config });
   }
 };
-
-const revealHeading = (elem, delay) => {
-  elem.classList.add("Revealed");
-  return new Promise((resolve) => {
-    anime({
-      delay,
-      targets: elem,
-      translateY: ["100%", 0],
-      translateX: [20, 0],
-      translateZ: 0,
-      easing: "spring(1, 60, 15, 3)",
-      update: (a) => {
-        a.progress > 10 && resolve(elem);
-      }
-    });
-  });
-};
-
-reveal();

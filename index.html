@@ -3,10 +3,13 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./src/styles.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap"
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
   </head>
 
@@ -16,51 +19,72 @@
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <h1 class="headline example-1">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-1">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-2">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-2">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-3">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-3">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-4">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-4">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-5">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline uiui-gradient-copy example-5">
+              <span>Your Amazing new Hero Headline</span>
+            </h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-6">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline uiui-underline-copy example-6">
+              Your <span>Amazing</span> new Hero Headline
+            </h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-7">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-7 uiui-blocks">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-8">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-8">Your Amazing new Hero Headline</h1>
           </div>
           <div class="swiper-slide">
-            <h1 class="headline example-9">Your Amazing new Hero Headline</h1>
+            <h1 class="uiui-headline example-9">Your Amazing new Hero Headline</h1>
           </div>
         </div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
+    <svg class="background--custom" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path
+        fill="#d6e17e"
+        fill-opacity="0.4"
+        d="M-100 -100L200 -100L200 80L-100 80Z"
+        style="animation: path0 2.6737967914438503s linear infinite alternate"
+      />
+      <path
+        fill="#f6d864"
+        fill-opacity="1"
+        d="M-100 -100L200 -100L200 90L-100 90Z"
+        style="animation: path1 5.74712643678161s linear infinite alternate"
+      />
+      <path
+        fill="#e3d040"
+        fill-opacity="0.1"
+        d="M-100 -100L200 -100L200 80L-100 80Z"
+        style="animation: path2 3.546099290780142s linear infinite alternate"
+      />
+    </svg>
+    <div class="Avatar-Wrap">
+      <img src="https://pbs.twimg.com/profile_images/1415678008040378374/vOwkk511_400x400.jpg" />
+      <div>
+        <p>
+          by
+          <a href="https://twitter.com/gobienan" target="_blank" rel="noopener noreferrer">Gobienan</a>
+          with joy 🥰
+        </p>
+      </div>
+    </div>
     <!-- Swiper JS -->
 
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        grabCursor: true,
-        effect: "cards",
-        pagination: {
-          el: ".swiper-pagination"
-        }
-      });
-      swiper.on("slideChange", function () {
-        console.log("slide changed");
-      });
-    </script>
     <script src="src/index.js"></script>
   </body>
 </html>
