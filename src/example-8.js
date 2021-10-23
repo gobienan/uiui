@@ -13,14 +13,14 @@ export const reveal = async () => {
     revealHeading({
       elem: layers[0],
       config: {
-        translateY: [0, -50],
+        translateY: [0, '100%'],
         translateZ: 0,
       },
     });
     revealHeading({
       elem: layers[1],
       config: {
-        translateY: [0, 50],
+        translateY: [0, '-100%'],
         translateZ: 0,
       },
     });
