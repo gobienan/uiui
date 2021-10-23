@@ -21,6 +21,13 @@ const reveal = {
   9: reveal9,
 };
 
+const replay = document.querySelector('.uiui-replay');
+let index = 1;
+const handleReplay = () => {
+  reveal[index]();
+};
+replay.addEventListener('click', handleReplay);
+
 const swiper = new Swiper('.mySwiper', {
   grabCursor: true,
   effect: 'cards',
@@ -31,14 +38,16 @@ const swiper = new Swiper('.mySwiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  initialSlide: 5,
+  initialSlide: 8,
   on: {
     init: function ({ snapIndex }) {
+      index = snapIndex + 1;
       reveal[snapIndex + 1]();
     },
   },
 });
 
 swiper.on('slideChange', function ({ snapIndex }) {
+  index = snapIndex + 1;
   reveal[snapIndex + 1]();
 });

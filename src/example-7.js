@@ -2,7 +2,7 @@ import { revealHeading } from './helper';
 
 const config = {
   translateZ: 0,
-  scaleX: [{ value: 0 }, { value: 1 }, { value: 0 }],
+  translateX: ['-105%', '105%'],
 };
 
 export const reveal = async () => {
@@ -13,9 +13,7 @@ export const reveal = async () => {
     .join(' ');
   const blocks = [...document.querySelectorAll('.example-7 .uiui-block')];
   for (const elem of blocks) {
-    revealHeading({ elem, config });
-    setTimeout(() => {
-      elem.previousSibling.style.opacity = 1;
-    }, 600);
+    await revealHeading({ elem, config });
+    elem.previousSibling.style.opacity = 1;
   }
 };
