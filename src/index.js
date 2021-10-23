@@ -1,53 +1,33 @@
-import Swiper from '../node_modules/swiper/swiper-bundle';
-import { reveal as reveal1 } from './example-1';
-import { reveal as reveal2 } from './example-2';
-import { reveal as reveal3 } from './example-3';
-import { reveal as reveal4 } from './example-4';
-import { reveal as reveal5 } from './example-5';
-import { reveal as reveal6 } from './example-6';
-import { reveal as reveal7 } from './example-7';
-import { reveal as reveal8 } from './example-8';
-import { reveal as reveal9 } from './example-9';
+import anime from 'animejs';
+import { init as headlines } from './headlines';
+import { init as buttons } from './buttons';
+import spinners from './spinners';
 
-const reveal = {
-  1: reveal1,
-  2: reveal2,
-  3: reveal3,
-  4: reveal4,
-  5: reveal5,
-  6: reveal6,
-  7: reveal7,
-  8: reveal8,
-  9: reveal9,
+const pages = {
+  headlines,
+  buttons,
+  spinners,
 };
 
-const replay = document.querySelector('.uiui-replay');
-let index = 1;
-const handleReplay = () => {
-  reveal[index]();
+const setIndicator = (event, elem) => {
+  event?.preventDefault?.();
+  const target = event?.target || elem;
+  const indicator = document.querySelector('.Indicator');
+  const nav = document.querySelector('nav');
+  const { width, x } = target.getBoundingClientRect();
+  const { x: indicatorX } = indicator.getBoundingClientRect();
+  const { x: navX } = nav.getBoundingClientRect();
+  anime({
+    targets: indicator,
+    width,
+    translateX: [indicatorX - navX, x - navX - 4],
+    easing: 'spring(1, 80, 12, 6)',
+  });
+  pages[target.dataset.page]();
+  document.querySelector('body').classList = '';
+  document.querySelector('body').classList.add(`is-${target.dataset.page}`);
 };
-replay.addEventListener('click', handleReplay);
 
-const swiper = new Swiper('.mySwiper', {
-  grabCursor: true,
-  effect: 'cards',
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  initialSlide: index - 1,
-  on: {
-    init: function ({ snapIndex }) {
-      index = snapIndex + 1;
-      reveal[snapIndex + 1]();
-    },
-  },
-});
-
-swiper.on('slideChange', function ({ snapIndex }) {
-  index = snapIndex + 1;
-  reveal[snapIndex + 1]();
-});
+const navigationItems = document.querySelectorAll('nav a');
+navigationItems.forEach((i) => i.addEventListener('click', setIndicator));
+setIndicator(null, navigationItems[0]);
