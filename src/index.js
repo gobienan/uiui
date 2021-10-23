@@ -38,7 +38,7 @@ const swiper = new Swiper('.mySwiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  initialSlide: 8,
+  initialSlide: index - 1,
   on: {
     init: function ({ snapIndex }) {
       index = snapIndex + 1;
