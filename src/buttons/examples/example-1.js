@@ -1,17 +1,17 @@
-import { revealHeading } from "./helper";
+import { revealHeading } from './helper';
 
 const config = {
-  translateY: ["100%", 0],
+  easing: 'spring(1, 80, 13, 5)',
   translateZ: 0,
   opacity: [0, 1],
 };
 
 export const reveal = async () => {
-  const headline = document.querySelector(".uiui-headline.example-1");
-  const parts = headline.textContent.split(" ");
-  headline.innerHTML = parts.map((p) => `<span>${p}</span>`).join(" ");
+  const button = document.querySelector('.uiui-button.example-1');
+  const parts = button.textContent.split(' ');
+  button.innerHTML = parts.map((p) => `<span>${p}</span>`).join(' ');
 
-  for (const elem of headline.children) {
+  for (const elem of button.children) {
     await revealHeading({ elem, config });
   }
 };

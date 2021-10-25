@@ -1,16 +1,41 @@
-import { revealHeading } from "./helper";
+import { revealHeading } from './helper';
 
-const config = {
-  translateY: ["100%", 0],
-  translateX: [40, 0],
-  translateZ: 0,
-  opacity: [0, 1],
-};
 export const reveal = async () => {
-  const headline = document.querySelector(".uiui-headline.example-2");
-  const parts = headline.textContent.split(" ");
-  headline.innerHTML = parts.map((p) => `<span>${p}</span>`).join(" ");
-  for (const elem of headline.children) {
-    await revealHeading({ elem, config });
-  }
+  const button = document.querySelector('.uiui-button.example-2');
+  const buttonSpan = document.querySelector('.uiui-button.example-2 span');
+
+  button.innerHTML = `<span>${buttonSpan.textContent}</span><span>${button.dataset.back}</span>`;
+  const spans = [...document.querySelectorAll('.uiui-button.example-2 span')];
+
+  const revealBack = () => {
+    for (let i = 0; i < spans.length; i++) {
+      const elem = spans[i];
+      revealHeading({
+        elem,
+        config: {
+          translateX: ['-50%', '-50%'],
+          translateY: i === 0 ? ['-50%', '-200%'] : ['200%', '-50%'],
+          translateZ: 0,
+          easing: 'spring(1, 80, 13, 5)',
+        },
+      });
+    }
+  };
+
+  const revealFront = () => {
+    for (let i = 0; i < spans.length; i++) {
+      const elem = spans[i];
+      revealHeading({
+        elem,
+        config: {
+          translateX: ['-50%', '-50%'],
+          translateY: i === 0 ? ['-200%', '-50%'] : ['-50%', '200%'],
+          translateZ: 0,
+          easing: 'spring(1, 60, 10, 3)',
+        },
+      });
+    }
+  };
+  button.addEventListener('mouseover', revealBack);
+  button.addEventListener('mouseleave', revealFront);
 };

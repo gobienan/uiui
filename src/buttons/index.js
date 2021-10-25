@@ -26,7 +26,7 @@ const reveal = {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 10;
+  let index = 4;
   const handleReplay = () => {
     reveal[index]();
   };
@@ -61,39 +61,39 @@ const render = () => {
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
-  <div class="uiui-button example-1">Try Our SaaS</div>
+  <button class="uiui-button uiui-button--glow example-1">Try Our SaaS</button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-2">Try Our Podcast</div>
+  <button class="uiui-button uiui-button--swap example-2" data-back="Tune In Now!"><span>Try Our Podcast 🎙</span></button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-3">Try Our Project</div>
+  <button class="uiui-button uiui-button--fill example-3"><span>Try Our Project</span></button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-4">Try Our Solution</div>
+  <button class="uiui-button uiui-button--goo example-4"><span>Try Our Solution</span></button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button uiui-gradient-copy example-5">
+  <button class="uiui-button uiui-gradient-copy example-5">
     <span>Try Our Product</span>
-  </div>
+  </button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button uiui-underline-copy example-6">
+  <button class="uiui-button uiui-underline-copy example-6">
     Your <span class="uiui-highlight">Amazing</span> New Ebook
-  </div>
+  </button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-7 uiui-blocks">Try Our button</div>
+  <button class="uiui-button example-7 uiui-blocks">Try Our button</button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-8 uiui-layers">
+  <button class="uiui-button example-8 uiui-layers">
     Try Our <span class="uiui-highlight"><span>App</span></span>
-  </div>
+  </button>
 </div>
 <div class="swiper-slide">
-  <div class="uiui-button example-9 uiui-glitch">
+  <button class="uiui-button example-9 uiui-glitch">
     Your <span class="uiui-highlight"><span>Amazing</span></span> New Game
-  </div>
+  </button>
 </div>
 <div class="swiper-slide swiper-slide--last">
   <div>

@@ -1,7 +1,7 @@
 import anime from 'animejs';
 import { init as headlines } from './headlines';
 import { init as buttons } from './buttons';
-import spinners from './spinners';
+import { init as spinners } from './buttons copy';
 
 const pages = {
   headlines,
@@ -30,4 +30,6 @@ const setIndicator = (event, elem) => {
 
 const navigationItems = document.querySelectorAll('nav a');
 navigationItems.forEach((i) => i.addEventListener('click', setIndicator));
-setIndicator(null, navigationItems[0]);
+setTimeout(() => {
+  setIndicator(null, navigationItems[1]);
+}, 400);

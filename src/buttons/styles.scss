@@ -1,7 +1,176 @@
 body.is-buttons {
-  --color-primary: #E19B7E;
+  --color-primary: #e19b7e;
+
+  .swiper-slide {
+  }
 }
 
-.uiui-button{
-  
+.uiui-button {
+  min-width: 220px;
+  padding: 18px 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  background: black;
+  color: #fff;
+}
+
+.uiui-button--glow {
+  z-index: 1;
+  transition: all 0.3s ease-out;
+  border-radius: 10px;
+}
+
+.uiui-button--glow:before {
+  content: '';
+  background: linear-gradient(45deg, #ff3c3c, #4968ff, #a34dff, #ff53da, #ff4444);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 400%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  border-radius: 10px;
+  transform-origin: center;
+}
+
+.uiui-button--glow:hover {
+  transform: scale(1.025) translateZ(0);
+}
+.uiui-button--glow:hover:before {
+  opacity: 1;
+  transform: translate(-4px, -4px) translateZ(0);
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+}
+.uiui-button--glow:active::after {
+  background: rgb(36, 36, 36);
+}
+
+.uiui-button--glow:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  left: 0;
+  top: 0;
+  border-radius: 8px;
+}
+
+.uiui-button--swap {
+  overflow: hidden;
+  height: 50px;
+
+  span {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%) translateZ(0);
+    transition: all 0s ease-in-out;
+    pointer-events: none;
+
+    &:last-child {
+      transform: translateY(-50px) translateX(-50%) translateZ(0);
+    }
+  }
+
+  &:hover {
+    background: rgb(36, 36, 36);
+  }
+}
+
+.uiui-button--fill {
+  background-color: transparent;
+  font-weight: normal;
+  padding: 0;
+
+  span {
+    position: relative;
+    z-index: 1;
+    color: black;
+    min-width: 220px;
+    display: block;
+
+    &:first-child {
+      border: solid 1px rgba(black, 0.6);
+      padding: 18px 25px;
+    }
+
+    &:last-child {
+      background-color: #ffe54c;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transform: translate(10px, 10px);
+    }
+  }
+}
+
+.uiui-button--goo {
+  border-radius: 10px;
+
+  .goo {
+    position: absolute;
+    visibility: hidden;
+  }
+  span {
+    position: relative;
+
+    z-index: 1;
+    pointer-events: none;
+  }
+  .blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url('#goo');
+    background-color: black;
+    border-radius: 10px;
+  }
+  .blob {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: black;
+
+    &.top-left {
+      top: 0;
+      left: 0;
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }

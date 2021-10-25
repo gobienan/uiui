@@ -1,4 +1,5 @@
 import Swiper from 'swiper/swiper-bundle';
+import './styles.scss';
 import { reveal as reveal1 } from './examples/example-1';
 import { reveal as reveal2 } from './examples/example-2';
 import { reveal as reveal3 } from './examples/example-3';
@@ -22,7 +23,9 @@ const reveal = {
   9: reveal9,
   10: reveal10,
 };
+
 export const init = () => {
+  render();
   const replay = document.querySelector('.uiui-replay');
   let index = 10;
   const handleReplay = () => {
@@ -55,8 +58,8 @@ export const init = () => {
   });
 };
 
-document.querySelector('#app').innerHTML ==
-  `
+const render = () => {
+  document.querySelector('#app').innerHTML = `
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
   <div class="swiper-slide">
@@ -130,3 +133,4 @@ document.querySelector('#app').innerHTML ==
 </div>
 <span class="uiui-replay">replay</span>
 `;
+};
