@@ -3,6 +3,9 @@ body.is-buttons {
 
   .swiper-slide {
   }
+  .uiui-replay {
+    display: none;
+  }
 }
 
 .uiui-button {
@@ -33,13 +36,14 @@ body.is-buttons {
   left: 0;
   background-size: 400%;
   z-index: -1;
-  width: 100%;
-  height: 100%;
   animation: glowing 20s linear infinite;
   opacity: 0;
   transition: all 0.3s ease-out;
   border-radius: 10px;
   transform-origin: center;
+  transform: translateZ(0);
+  width: 100%;
+  height: 100%;
 }
 
 .uiui-button--glow:hover {
@@ -47,9 +51,7 @@ body.is-buttons {
 }
 .uiui-button--glow:hover:before {
   opacity: 1;
-  transform: translate(-4px, -4px) translateZ(0);
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
+  transform: translateZ(0) scaleX(1.045) scaleY(1.145);
 }
 .uiui-button--glow:active::after {
   background: rgb(36, 36, 36);
@@ -93,7 +95,6 @@ body.is-buttons {
 
 .uiui-button--fill {
   background-color: transparent;
-  font-weight: normal;
   padding: 0;
 
   span {
@@ -104,7 +105,7 @@ body.is-buttons {
     display: block;
 
     &:first-child {
-      border: solid 1px rgba(black, 0.6);
+      border: solid 2px rgba(black, 0.8);
       padding: 18px 25px;
     }
 
@@ -159,6 +160,129 @@ body.is-buttons {
     &.bottom-right {
       bottom: 0;
       right: 0;
+    }
+  }
+}
+
+.uiui-button.example-5 {
+  background-color: transparent;
+  &:hover {
+    span {
+      color: white;
+    }
+  }
+  span {
+    color: black;
+    z-index: 1;
+    pointer-events: none;
+    position: relative;
+    display: block;
+    transition: all 0.3s ease-out;
+
+    &:last-child {
+      transition: none;
+      z-index: 0;
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      width: 20px;
+      height: 4px;
+      transform: translateX(-10px) translateY(-50%);
+      background-color: black;
+      transform-origin: right;
+    }
+  }
+}
+
+.uiui-button.example-6 {
+  background-color: transparent;
+  &:hover {
+    span {
+      color: white;
+    }
+  }
+  span {
+    color: black;
+    z-index: 1;
+    pointer-events: none;
+    position: relative;
+    display: block;
+    transition: all 0.3s ease-out;
+
+    &:last-child {
+      transition: none;
+      z-index: 0;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: calc(100% - 100px);
+      height: 3px;
+      transform: translateX(-50%) translateY(-10px);
+      background-color: black;
+      transform-origin: bottom;
+    }
+  }
+}
+
+.uiui-button.example-7 {
+  overflow: hidden;
+  height: 50px;
+  min-width: 180px;
+
+  span {
+    width: 100%;
+    display: block;
+    transition: all 0s ease-in-out;
+    pointer-events: none;
+
+    &:last-child {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translateY(100%) translateX(-100%) translateZ(0);
+    }
+  }
+
+  &:hover {
+    background: rgb(36, 36, 36);
+  }
+}
+
+.uiui-button.example-8 {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, #3512b2, #d18873);
+  background-size: 200%;
+  border-radius: 5px;
+  transition: all 0.4s cubic-bezier(0.49, 0.04, 0, 1);
+  padding: 14px 30px;
+
+  &:hover {
+    background-color: transparent;
+    filter: brightness(1.125);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09), 0 8px 8px rgba(0, 0, 0, 0.06),
+      0 16px 18px rgba(65, 56, 56, 0.04), 0 32px 36px rgba(0, 0, 0, 0.02);
+    transform: scale(1.05);
+    background-position: 100%;
+  }
+}
+
+.uiui-button.example-9 {
+  background-color: transparent;
+  padding: 0;
+  overflow: hidden;
+
+  span {
+    background-color: black;
+    padding: 15px 30px;
+    display: block;
+
+    &:last-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-50%) translateX(-50%) translateZ(0);
     }
   }
 }

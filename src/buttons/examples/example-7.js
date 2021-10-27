@@ -1,19 +1,41 @@
 import { revealHeading } from './helper';
 
-const config = {
-  translateZ: 0,
-  translateX: ['-105%', '105%'],
-};
-
 export const reveal = async () => {
-  const headline = document.querySelector('.uiui-headline.example-7');
-  const parts = headline.textContent.split(' ');
-  headline.innerHTML = parts
-    .map((p) => `<span><span>${p}</span><span class="uiui-block"></span></span>`)
-    .join(' ');
-  const blocks = [...document.querySelectorAll('.example-7 .uiui-block')];
-  for (const elem of blocks) {
-    await revealHeading({ elem, config });
-    elem.previousSibling.style.opacity = 1;
-  }
+  const button = document.querySelector('.uiui-button.example-7');
+  const buttonSpan = document.querySelector('.uiui-button.example-7 span');
+
+  button.innerHTML = `<span>${buttonSpan.textContent}</span><span>${button.dataset.back}</span>`;
+  const spans = [...document.querySelectorAll('.uiui-button.example-7 span')];
+
+  const revealBack = () => {
+    for (let i = 0; i < spans.length; i++) {
+      const elem = spans[i];
+      revealHeading({
+        elem,
+        config: {
+          translateX: i === 0 ? ['0', `${button.clientWidth / 1.5}`] : ['-100%', '-50%'],
+          translateY: i === 0 ? ['0', `-${button.clientHeight / 1.5}`] : ['100%', '-50%'],
+          translateZ: 0,
+          easing: 'spring(1, 80, 20, 9)',
+        },
+      });
+    }
+  };
+
+  const revealFront = () => {
+    for (let i = 0; i < spans.length; i++) {
+      const elem = spans[i];
+      revealHeading({
+        elem,
+        config: {
+          translateX: i === 0 ? [`${button.clientWidth / 1.5}`, '0'] : ['-50%', '-100%'],
+          translateY: i === 0 ? [`-${button.clientHeight / 1.5}`, '0'] : ['-50%', '100%'],
+          translateZ: 0,
+          easing: 'spring(1, 80, 20, 9)',
+        },
+      });
+    }
+  };
+  button.addEventListener('mouseover', revealBack);
+  button.addEventListener('mouseleave', revealFront);
 };

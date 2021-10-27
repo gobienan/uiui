@@ -104,7 +104,7 @@ const render = () => {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 10;
+  let index = 1;
   const handleReplay = () => {
     reveal[index]();
   };

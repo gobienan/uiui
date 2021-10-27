@@ -26,7 +26,7 @@ const reveal = {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 4;
+  let index = 9;
   const handleReplay = () => {
     reveal[index]();
   };
@@ -73,26 +73,26 @@ const render = () => {
   <button class="uiui-button uiui-button--goo example-4"><span>Try Our Solution</span></button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button uiui-gradient-copy example-5">
+  <button class="uiui-button example-5">
     <span>Try Our Product</span>
   </button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button uiui-underline-copy example-6">
-    Your <span class="uiui-highlight">Amazing</span> New Ebook
+  <button class="uiui-button example-6">
+    <span>Your Amazing New Ebook</span>
   </button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button example-7 uiui-blocks">Try Our button</button>
+  <button class="uiui-button example-7"  data-back="Hey there 👋"><span>Swuuush</span></button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button example-8 uiui-layers">
-    Try Our <span class="uiui-highlight"><span>App</span></span>
+  <button class="uiui-button example-8">
+  <span>Sign Up Today 🚀</span>
   </button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button example-9 uiui-glitch">
-    Your <span class="uiui-highlight"><span>Amazing</span></span> New Game
+  <button class="uiui-button example-9">
+     <span>Your Amazing New Game</span>
   </button>
 </div>
 <div class="swiper-slide swiper-slide--last">
