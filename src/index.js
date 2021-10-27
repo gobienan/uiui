@@ -1,7 +1,7 @@
 import anime from 'animejs';
 import { init as headlines } from './headlines';
 import { init as buttons } from './buttons';
-import { init as spinners } from './buttons copy';
+import { init as spinners } from './spinners';
 
 const pages = {
   headlines,
