@@ -76,24 +76,33 @@ const render = () => {
   <button class="uiui-button example-5">
     <span>Try Our Product</span>
   </button>
+    <span class="uiui-code">Code</span>
+
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-6">
     <span>Your Amazing New Ebook</span>
   </button>
+    <span class="uiui-code">Code</span>
+
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-7"  data-back="Hey there 👋"><span>Swuuush</span></button>
+  <span class="uiui-code">Code</span>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-8">
   <span>Sign Up Today 🚀</span>
   </button>
+    <span class="uiui-code">Code</span>
+
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-9">
      <span>Your Amazing New Game</span>
   </button>
+    <span class="uiui-code">Code</span>
+
 </div>
 <div class="swiper-slide swiper-slide--last">
   <div>

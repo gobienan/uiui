@@ -25,7 +25,7 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 20px;
+  gap: 5px;
   border-radius: 4px;
   background-color: white;
   padding: 4px;
@@ -46,6 +46,12 @@ nav {
     position: relative;
     z-index: 1;
     padding: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      height: calc(100% - 8px);
+      background-color: rgba($color: #000000, $alpha: 0.1);
+    }
 
     span {
       font-size: 12px;
@@ -108,6 +114,59 @@ nav {
   @media screen and (max-width: 500px) {
     margin-top: -20px;
   }
+}
+.uiui-code {
+  z-index: 1;
+  transition: all 0.3s ease-out;
+  color: white;
+  position: absolute;
+  font-weight: 400;
+  font-family: monospace;
+  padding: 10px 30px;
+  right: 30px;
+  bottom: 30px;
+  cursor: pointer;
+  font-size: clamp(12px, 3vw, 16px);
+}
+
+.uiui-code:before {
+  content: '';
+  background: linear-gradient(45deg, #ff3c3c, #4968ff, #a34dff, #ff53da, #ff4444);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 400%;
+  z-index: -1;
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  transform-origin: center;
+  transform: translateZ(0);
+  width: 100%;
+  height: 100%;
+}
+
+.uiui-code:hover {
+  transform: scale(1.025) translateZ(0);
+}
+.uiui-code:hover:before {
+  opacity: 1;
+  transform: translateZ(0) scaleX(1.095) scaleY(1.195);
+}
+.uiui-code:active::after {
+  background: rgb(36, 36, 36);
+}
+
+.uiui-code:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  left: 0;
+  top: 0;
+  border-radius: 0;
 }
 
 @keyframes bg {
