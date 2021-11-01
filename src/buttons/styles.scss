@@ -131,7 +131,6 @@ body.is-buttons {
   }
   span {
     position: relative;
-
     z-index: 1;
     pointer-events: none;
   }
@@ -144,6 +143,7 @@ body.is-buttons {
     filter: url('#goo');
     background-color: black;
     border-radius: 10px;
+    pointer-events: none;
   }
   .blob {
     position: absolute;

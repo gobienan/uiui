@@ -33,3 +33,11 @@ navigationItems.forEach((i) => i.addEventListener('click', setIndicator));
 setTimeout(() => {
   setIndicator(null, navigationItems[1]);
 }, 400);
+
+const showCode = () => {
+  document.querySelector('.editor-wrap').classList.toggle('is-visible');
+};
+
+const uiuiCodeButtons = document.querySelectorAll('.uiui-code');
+
+uiuiCodeButtons.forEach((b) => b.addEventListener('click', showCode));

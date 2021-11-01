@@ -36,7 +36,6 @@ const render = () => {
 <div class="swiper-slide">
   <h1 class="uiui-headline example-2">Your Amazing New Podcast</h1>
   <span class="uiui-code">Code</span>
-
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-3">Your Amazing New Project</h1>
