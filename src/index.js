@@ -9,10 +9,12 @@ const pages = {
   spinners,
 };
 
-const setIndicator = (event, elem) => {
+const setIndicator = ({ event, elem, indicatorClass = 'Indicator', loadPage }) => {
   event?.preventDefault?.();
-  const target = event?.target || elem;
-  const indicator = document.querySelector('.Indicator');
+  const target = event?.currentTarget || elem;
+  const indicator = document.querySelector(`.${indicatorClass}`);
+  indicator.classList.add('is-visible');
+
   const nav = document.querySelector('nav');
   const { width, x } = target.getBoundingClientRect();
   const { x: indicatorX } = indicator.getBoundingClientRect();
@@ -21,23 +23,39 @@ const setIndicator = (event, elem) => {
     targets: indicator,
     width,
     translateX: [indicatorX - navX, x - navX - 4],
-    easing: 'spring(1, 80, 12, 6)',
+    translateZ: 0,
+    easing: 'spring(1, 70, 12, 6)',
   });
-  pages[target.dataset.page]();
-  document.querySelector('body').classList = '';
-  document.querySelector('body').classList.add(`is-${target.dataset.page}`);
+  if (loadPage) {
+    pages[target.dataset.page]();
+    document.querySelector('body').classList = '';
+    document.querySelector('body').classList.add(`is-${target.dataset.page}`);
+  }
+};
+const hideIndicator = ({ indicatorClass }) => {
+  const indicator = document.querySelector(`.${indicatorClass}`);
+  if (indicator) {
+    indicator.classList.toggle('is-visible');
+  }
 };
 
-const navigationItems = document.querySelectorAll('nav a');
-navigationItems.forEach((i) => i.addEventListener('click', setIndicator));
-setTimeout(() => {
-  setIndicator(null, navigationItems[1]);
-}, 400);
+const navigationItems = document.querySelectorAll('nav > a');
+navigationItems.forEach((i) => {
+  i.addEventListener('click', (event) => setIndicator({ event, loadPage: true }));
+  i.addEventListener('mouseover', (event) => setIndicator({ event, indicatorClass: 'HiddenIndicator' }));
+  i.addEventListener('mouseleave', (event) => hideIndicator({ event, indicatorClass: 'HiddenIndicator' }));
+});
 
-const showCode = () => {
+const toggleCode = () => {
   document.querySelector('.editor-wrap').classList.toggle('is-visible');
 };
 
-const uiuiCodeButtons = document.querySelectorAll('.uiui-code');
-
-uiuiCodeButtons.forEach((b) => b.addEventListener('click', showCode));
+window.addEventListener('load', () => {
+  setIndicator({ elem: navigationItems[0], loadPage: true });
+  setTimeout(() => {
+    const uiuiCodeButtons = [...document.querySelectorAll('.uiui-code')];
+    console.log(uiuiCodeButtons);
+    uiuiCodeButtons.forEach((b) => b.addEventListener('click', toggleCode));
+    document.querySelector('.editor-close-times').addEventListener('click', toggleCode);
+  }, 600);
+});

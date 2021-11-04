@@ -19,6 +19,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
 nav {
   position: fixed;
   top: 100px;
@@ -29,9 +30,10 @@ nav {
   border-radius: 4px;
   background-color: white;
   padding: 4px;
+  overflow: hidden;
 
   @media screen and (max-width: 500px) {
-    top: 20px;
+    top: 100px;
   }
 
   a {
@@ -44,13 +46,13 @@ nav {
     font-size: 14px;
     border-radius: 3px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     padding: 8px;
     transition: all 0.2s ease;
 
-    &:hover {
-      height: calc(100% - 8px);
-      background-color: rgba($color: #000000, $alpha: 0.1);
+    @media screen and (max-width: 500px) {
+      font-size: 16px;
+      gap: 8px;
     }
 
     span {
@@ -58,7 +60,9 @@ nav {
       opacity: 0.5;
     }
   }
-  .Indicator {
+
+  .Indicator,
+  .HiddenIndicator {
     height: calc(100% - 8px);
     background-color: var(--color-primary);
     position: absolute;
@@ -67,14 +71,28 @@ nav {
     z-index: 0;
     border-radius: 3px;
   }
+  .Indicator {
+    z-index: 1;
+  }
+
+  .HiddenIndicator {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background 0.2s ease-in-out;
+
+    &.is-visible {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
 }
 
 .swiper {
-  width: clamp(280px, 80vw, 1000px);
+  width: clamp(320px, 80vw, 1000px);
   height: clamp(300px, 50vh, 800px);
+  border-radius: 10px;
+  overflow: hidden;
 
   @media screen and (max-width: 500px) {
-    width: 100%;
+    width: calc(100vw - 20px);
   }
 }
 
@@ -87,7 +105,6 @@ nav {
   cursor: grab;
   font-weight: bold;
   background: #fff;
-  border-radius: 10px;
   padding: 50px;
 
   @media screen and (max-width: 500px) {
@@ -96,42 +113,45 @@ nav {
 
   &.swiper-slide--last {
     align-items: flex-start;
+
     > * {
       max-width: 500px;
       margin: 0 auto;
     }
   }
-  @media screen and (max-width: 500px) {
-    margin-top: -30px;
-  }
+}
+
+.uiui-toolbar {
+  margin-top: -50px;
+  margin-right: 14px;
+  margin-left: 14px;
+  z-index: 5;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .uiui-replay {
-  position: absolute;
-  left: 50%;
-  margin-top: clamp(300px, 33vw, 1400px);
-  transform: translateX(-50%);
   cursor: pointer;
   text-decoration: underline;
   font-size: clamp(12px, 3vw, 16px);
   display: block;
-
-  @media screen and (max-width: 500px) {
-    margin-top: 50px;
-  }
 }
 .uiui-code {
   z-index: 1;
   transition: all 0.3s ease-out;
   color: white;
-  position: absolute;
   font-weight: 400;
   font-family: monospace;
   padding: 10px 30px;
-  right: 30px;
-  bottom: 30px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: clamp(12px, 3vw, 16px);
+  z-index: 5;
+  position: relative;
+  display: inline-block;
 }
 
 .uiui-code:before {
@@ -149,6 +169,7 @@ nav {
   transform: translateZ(0);
   width: 100%;
   height: 100%;
+  border-radius: 8px;
 }
 
 .uiui-code:hover {
@@ -160,6 +181,7 @@ nav {
 }
 .uiui-code:active::after {
   background: rgb(36, 36, 36);
+  border-radius: 8px;
 }
 
 .uiui-code:after {
@@ -171,7 +193,7 @@ nav {
   background: black;
   left: 0;
   top: 0;
-  border-radius: 0;
+  border-radius: 8px;
 }
 
 @keyframes bg {
@@ -195,6 +217,10 @@ nav {
 .swiper-pagination {
   bottom: unset;
   margin-top: 10px;
+
+  @media screen and (max-width: 500px) {
+    bottom: -40px !important;
+  }
 }
 
 .Avatar-Wrap {
@@ -250,26 +276,26 @@ path {
 
 @keyframes path0 {
   0% {
-    transform: rotate(-10deg);
+    transform: rotateZ(-10deg) translateZ(0);
   }
   100% {
-    transform: rotate(10deg);
+    transform: rotateZ(10deg) translateZ(0);
   }
 }
 @keyframes path1 {
   0% {
-    transform: rotate(-10deg);
+    transform: rotateZ(-10deg) translateZ(0);
   }
   100% {
-    transform: rotate(10deg);
+    transform: rotateZ(10deg) translateZ(0);
   }
 }
 @keyframes path2 {
   0% {
-    transform: rotate(20deg);
+    transform: rotateZ(20deg) translateZ(0);
   }
   100% {
-    transform: rotate(-20deg);
+    transform: rotateZ(-20deg) translateZ(0);
   }
 }
 .swiper-button-next {
@@ -284,15 +310,18 @@ path {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($color: #000000, $alpha: 0.5);
+  background-color: rgba($color: #000000, $alpha: 0.75);
   padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 99;
   opacity: 0;
   visibility: hidden;
 
+  @media screen and (max-width: 500px) {
+    padding: 0px;
+  }
   &.is-visible {
     opacity: 1;
     visibility: visible;
@@ -305,12 +334,19 @@ path {
     font-family: 'Source Code Pro', monospace;
     font-size: 14px;
     font-weight: 400;
-    height: 340px;
+    width: clamp(320px, 80vw, 1000px);
     letter-spacing: normal;
     line-height: 20px;
     padding: 10px;
     tab-size: 4;
     background-color: white;
+
+    @media screen and (max-width: 500px) {
+      width: calc(100vw - 20px);
+    }
+    iframe {
+      display: block;
+    }
   }
 
   .editor-close-times {
@@ -318,21 +354,25 @@ path {
     top: 40px;
     right: 40px;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+
+    @media screen and (max-width: 500px) {
+      bottom: 20px;
+      top: unset;
+      right: 20px;
+    }
 
     &:hover {
-      &::after {
-        transform: rotateZ(45deg);
-        background-color: black;
-      }
-      &::before {
-        transform: rotateZ(-45deg);
-        background-color: black;
-      }
+      transform: scale(1.125);
     }
     &::before,
     &::after {
+      top: 24px;
+      left: 10px;
       width: 30px;
       height: 3px;
       content: '';

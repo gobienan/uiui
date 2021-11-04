@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 body.is-headlines {
   --color-primary: #f8df7a;
@@ -16,24 +16,6 @@ body.is-headlines {
     font-size: 1rem;
   }
 }
-.uiui-share {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  gap: 20px;
-
-  a {
-    color: #1da1f2;
-    text-decoration: none;
-  }
-
-  svg {
-    height: 1.5em;
-  }
-}
-
-.uiui-headline.Revealed {
-}
 
 .uiui-headline > * {
   will-change: auto;
@@ -43,6 +25,28 @@ body.is-headlines {
 
 .uiui-headline > *.Revealed {
   transform: translate(0, 0) translateZ(0);
+}
+
+.uiui-share {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    gap: 8px;
+    font-size: 1.65rem;
+    margin-top: 0;
+  }
+
+  a {
+    color: #1da1f2;
+    text-decoration: none;
+  }
+
+  svg {
+    height: 1.5em;
+  }
 }
 
 .uiui-gradient-copy span {

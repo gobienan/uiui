@@ -26,7 +26,7 @@ const reveal = {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 9;
+  let index = 1;
   const handleReplay = () => {
     reveal[index]();
   };
@@ -34,7 +34,6 @@ export const init = () => {
 
   const swiper = new Swiper('.mySwiper', {
     grabCursor: true,
-    effect: 'cards',
     pagination: {
       el: '.swiper-pagination',
     },
@@ -76,32 +75,27 @@ const render = () => {
   <button class="uiui-button example-5">
     <span>Try Our Product</span>
   </button>
-    <span class="uiui-code">Code</span>
 
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-6">
     <span>Your Amazing New Ebook</span>
   </button>
-    <span class="uiui-code">Code</span>
 
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-7"  data-back="Hey there 👋"><span>Swuuush</span></button>
-  <span class="uiui-code">Code</span>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-8">
   <span>Sign Up Today 🚀</span>
   </button>
-    <span class="uiui-code">Code</span>
 
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-9">
      <span>Your Amazing New Game</span>
   </button>
-    <span class="uiui-code">Code</span>
 
 </div>
 <div class="swiper-slide swiper-slide--last">
@@ -138,6 +132,10 @@ const render = () => {
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
 <span class="uiui-replay">replay</span>
+</div>
+
 `;
 };

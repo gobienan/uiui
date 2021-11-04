@@ -1,6 +1,10 @@
 body.is-spinners {
   --color-primary: #e17e7e;
+
+  .uiui-replay {
+    display: none;
+  }
 }
 
-.uiui-button {
+.uiui-spinner {
 }

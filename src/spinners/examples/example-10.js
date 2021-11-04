@@ -6,7 +6,7 @@ const config = {
 };
 
 export const reveal = async () => {
-  const elements = [...document.querySelectorAll('.uiui-headline.example-10 *')];
+  const elements = [...document.querySelectorAll('.uiui-spinner.example-10 *')];
   for (const elem of elements) {
     revealHeading({ elem, config });
   }

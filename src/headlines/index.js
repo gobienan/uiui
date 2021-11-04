@@ -24,60 +24,93 @@ const reveal = {
   10: reveal10,
 };
 
+export const init = () => {
+  render();
+  const replay = document.querySelector('.uiui-replay');
+  let index = 1;
+  const handleReplay = () => {
+    reveal[index]();
+  };
+  replay.addEventListener('click', handleReplay);
+
+  const swiper = new Swiper('.mySwiper', {
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    initialSlide: index - 1,
+    on: {
+      init: function ({ snapIndex }) {
+        index = snapIndex + 1;
+        reveal[snapIndex + 1]();
+      },
+    },
+  });
+
+  swiper.on('slideChange', function ({ snapIndex }) {
+    index = snapIndex + 1;
+    reveal[snapIndex + 1]();
+  });
+};
+
 const render = () => {
   document.querySelector('#app').innerHTML = `
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
   <h1 class="uiui-headline example-1">Your Amazing New SaaS</h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-2">Your Amazing New Podcast</h1>
-  <span class="uiui-code">Code</span>
+  
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-3">Your Amazing New Project</h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-4">Your Amazing New Solution</h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline uiui-gradient-copy example-5">
     <span>Your Amazing New Product</span>
   </h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline uiui-underline-copy example-6">
     Your <span class="uiui-highlight">Amazing</span> New Ebook
   </h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-7 uiui-blocks">Your Amazing New Headline</h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-8 uiui-layers">
     Your Amazing New <span class="uiui-highlight"><span>App</span></span>
   </h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-9 uiui-glitch">
     Your <span class="uiui-highlight"><span>Amazing</span></span> New Game
   </h1>
-  <span class="uiui-code">Code</span>
+  
 
 </div>
 <div class="swiper-slide swiper-slide--last">
@@ -106,7 +139,7 @@ const render = () => {
         ></path>
       </svg>
     </h1>
-    <span class="uiui-code">Code</span>
+    
 
   </div>
 </div>
@@ -116,40 +149,11 @@ const render = () => {
 <div class="swiper-button-next"></div>
 <div class="swiper-button-prev"></div>
 </div>
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
 <span class="uiui-replay">replay</span>
+</div>
+</div>
+
 `;
-};
-
-export const init = () => {
-  render();
-  const replay = document.querySelector('.uiui-replay');
-  let index = 1;
-  const handleReplay = () => {
-    reveal[index]();
-  };
-  replay.addEventListener('click', handleReplay);
-
-  const swiper = new Swiper('.mySwiper', {
-    grabCursor: true,
-    effect: 'cards',
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    initialSlide: index - 1,
-    on: {
-      init: function ({ snapIndex }) {
-        index = snapIndex + 1;
-        reveal[snapIndex + 1]();
-      },
-    },
-  });
-
-  swiper.on('slideChange', function ({ snapIndex }) {
-    index = snapIndex + 1;
-    reveal[snapIndex + 1]();
-  });
 };

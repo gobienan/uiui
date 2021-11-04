@@ -35,7 +35,6 @@ export const init = () => {
 
   const swiper = new Swiper('.mySwiper', {
     grabCursor: true,
-    effect: 'cards',
     pagination: {
       el: '.swiper-pagination',
     },
@@ -62,46 +61,11 @@ const render = () => {
   document.querySelector('#app').innerHTML = `
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-1">Your Amazing New SaaS</h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-2">Your Amazing New Podcast</h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-3">Your Amazing New Project</h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-4">Your Amazing New Solution</h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline uiui-gradient-copy example-5">
-      <span>Your Amazing New Product</span>
-    </h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline uiui-underline-copy example-6">
-      Your <span class="uiui-highlight">Amazing</span> New Ebook
-    </h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-7 uiui-blocks">Your Amazing New Headline</h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-8 uiui-layers">
-      Your Amazing New <span class="uiui-highlight"><span>App</span></span>
-    </h1>
-  </div>
-  <div class="swiper-slide">
-    <h1 class="uiui-headline example-9 uiui-glitch">
-      Your <span class="uiui-highlight"><span>Amazing</span></span> New Game
-    </h1>
-  </div>
   <div class="swiper-slide swiper-slide--last">
     <div>
-      <span>Like It?</span>
-      <h1 class="uiui-headline example-10 uiui-share">
-        <span>Share</span> <span>on</span>
+      <span>Coming Soon!</span>
+      <h1 class="uiui-spinner example-10 uiui-share">
+        <span>Follow</span> <span>on</span>
         <a
           target="_blank"
           href="https://twitter.com/intent/tweet?text=Check out uiui by @gobienan — A collection of UI elements for Makers"
