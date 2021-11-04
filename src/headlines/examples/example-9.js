@@ -43,7 +43,7 @@ const setCode = () => {
   setTimeout(() => {
     const editor = document.querySelector('.editor iframe');
     const url =
-      'https://codesandbox.io/s/uiui-headline-example-9-nqiyw?fontsize=14&hidenavigation=1&theme=dark';
+      'https://codesandbox.io/embed/uiui-headline-example-9-nqiyw?fontsize=14&hidenavigation=1&theme=dark';
     editor.setAttribute('src', url);
   }, 1000);
 };

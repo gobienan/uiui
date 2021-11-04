@@ -20,7 +20,8 @@ export const reveal = async () => {
 const setCode = () => {
   setTimeout(() => {
     const editor = document.querySelector('.editor iframe');
-    const url = 'https://codesandbox.io/embed/silent-morning-qs5uw?fontsize=14&hidenavigation=1&theme=dark';
+    const url =
+      'https://codesandbox.io/embed/uiui-headline-example-1-qs5uw?fontsize=14&hidenavigation=1&theme=dark';
     editor.setAttribute('src', url);
   }, 1000);
 };
