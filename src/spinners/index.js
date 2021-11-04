@@ -64,11 +64,11 @@ const render = () => {
   <div class="swiper-slide swiper-slide--last">
     <div>
       <span>Coming Soon!</span>
-      <h1 class="uiui-spinner example-10 uiui-share">
-        <span>Follow</span> <span>on</span>
-        <a
+      <h1 class="uiui-headline example-10 uiui-share Revealed">
+        <span class="Revealed">Follow</span> <span class="Revealed">on</span>
+        <a class="Revealed"
           target="_blank"
-          href="https://twitter.com/intent/tweet?text=Check out uiui by @gobienan — A collection of UI elements for Makers"
+          href="https://twitter.com/gobienan"
           >Twitter
         </a>
         <svg
@@ -76,7 +76,7 @@ const render = () => {
           focusable="false"
           data-prefix="fab"
           data-icon="twitter"
-          class="svg-inline--fa fa-twitter fa-w-16"
+          class="Revealed svg-inline--fa fa-twitter fa-w-16"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
