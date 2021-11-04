@@ -27,7 +27,7 @@ const reveal = {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 1;
+  let index = 9;
   const handleReplay = () => {
     reveal[index]();
   };
@@ -96,8 +96,6 @@ const render = () => {
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-7 uiui-blocks">Your Amazing New Headline</h1>
-  
-
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-8 uiui-layers">

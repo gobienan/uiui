@@ -25,4 +25,14 @@ export const reveal = async () => {
       },
     });
   }, 500);
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/s/uiui-headline-example-8-5gkz1?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };
