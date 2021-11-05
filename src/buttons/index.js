@@ -105,7 +105,7 @@ const render = () => {
       <span>Share</span> <span>on</span>
       <a
         target="_blank"
-        href="https://twitter.com/intent/tweet?text=Check out uiui by @gobienan — A collection of UI elements for Makers"
+        href="https://twitter.com/intent/tweet?text=Check out uiui.dev by @gobienan — A collection of UI elements for developers"
         >Twitter
       </a>
       <svg
