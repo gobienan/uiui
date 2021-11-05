@@ -62,4 +62,6 @@ const initCodeButton = () => {
 window.addEventListener('load', () => {
   setIndicator({ elem: navigationItems[0], loadPage: true });
   setTimeout(initCodeButton, 600);
+  const footerFollow = document.querySelector('.footer-follow');
+  footerFollow.addEventListener('click', () => plausible('clicked-footer-follow'));
 });

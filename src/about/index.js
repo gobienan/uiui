@@ -15,15 +15,10 @@ export const init = async () => {
     for (const elem of wrapper.children) {
       await revealHeading({ elem, config });
     }
-    // const paragraphs = [...document.querySelectorAll('.is-about p')];
-    // paragraphs.forEach(async (paragraph) => {
-    //   const paragraphsParts = paragraph.textContent.split(' ');
-    //   paragraph.innerHTML = paragraphsParts.map((p) => `<span><span>${p}</span></span>`).join(' ');
-    //   for (const elem of [...paragraph.querySelectorAll('span span')]) {
-    //     revealHeading({ elem, config });
-    //   }
-    // });
-  }, 0);
+    const aboutFollow = document.querySelector('.about-follow');
+    console.log(aboutFollow);
+    aboutFollow.addEventListener('click', () => plausible('clicked-footer-follow'));
+  }, 1);
 };
 const render = () => {
   document.querySelector('#app').innerHTML = `
@@ -38,7 +33,7 @@ const render = () => {
       A little bit about me:
       <br>
       I love to code and to build stuff with real world applications. Bootstrapping products is my way. <br>
-      <a href="https://twitter.com/gobienan" target="_blank" rel="noopener noreferrer">Follow</a> along if you would like 🥰<p/>
+      <a class="about-follow" href="https://twitter.com/gobienan" target="_blank" rel="noopener noreferrer">Follow</a> along if you would like 🥰<p/>
   </div>
 </div>
 </div>

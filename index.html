@@ -9,7 +9,7 @@
 
     <meta name="description" content="A collection of UI elements you can steal from me 🥰" />
     <meta name="title" content="UIUI - UI Collection for Developers" />
-    <script defer data-domain="uiui.dev" src="https://plausible.io/js/plausible.js"></script>
+    <script defer data-domain="uiui.dev" src="https://plausible.io/js/plausible.outbound-links.js"></script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -58,6 +58,13 @@
       rel="stylesheet"
     />
   </head>
+  <script>
+    window.plausible =
+      window.plausible ||
+      function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+  </script>
 
   <body>
     <nav>
@@ -95,7 +102,7 @@
       <div>
         <p>
           by
-          <a href="https://twitter.com/gobienan" target="_blank" rel="noopener noreferrer">@gobienan</a>
+          <a class="footer-follow" href="https://twitter.com/gobienan" target="_blank" rel="noopener noreferrer">@gobienan</a>
           with joy 🥰
         </p>
       </div>
