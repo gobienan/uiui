@@ -152,6 +152,5 @@ const render = () => {
 <span class="uiui-replay">replay</span>
 </div>
 </div>
-
 `;
 };

@@ -126,7 +126,6 @@ const render = () => {
     </div>
   </div>
 </div>
-</div>
 <!-- Swiper -->
 <div class="swiper-pagination"></div>
 <div class="swiper-button-next"></div>
@@ -137,5 +136,6 @@ const render = () => {
 <span class="uiui-replay">replay</span>
 </div>
 
+</div>
 `;
 };
