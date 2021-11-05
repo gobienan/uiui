@@ -1,4 +1,4 @@
-import { revealHeading } from './helper';
+import { animate } from './helper';
 
 export const reveal = async () => {
   const button = document.querySelector('.uiui-button.example-7');
@@ -10,7 +10,7 @@ export const reveal = async () => {
   const revealBack = () => {
     for (let i = 0; i < spans.length; i++) {
       const elem = spans[i];
-      revealHeading({
+      animate({
         elem,
         config: {
           translateX: i === 0 ? ['0', `${button.clientWidth / 1.5}`] : ['-100%', '-50%'],
@@ -25,7 +25,7 @@ export const reveal = async () => {
   const revealFront = () => {
     for (let i = 0; i < spans.length; i++) {
       const elem = spans[i];
-      revealHeading({
+      animate({
         elem,
         config: {
           translateX: i === 0 ? [`${button.clientWidth / 1.5}`, '0'] : ['-50%', '-100%'],
@@ -38,4 +38,14 @@ export const reveal = async () => {
   };
   button.addEventListener('mouseover', revealBack);
   button.addEventListener('mouseleave', revealFront);
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/embed/uiui-button-example-7-3rvyh?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };

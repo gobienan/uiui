@@ -1,4 +1,4 @@
-import { revealHeading } from './helper';
+import { animate } from './helper';
 
 const config = {
   easing: 'spring(1, 80, 13, 5)',
@@ -12,6 +12,16 @@ export const reveal = async () => {
   button.innerHTML = parts.map((p) => `<span>${p}</span>`).join(' ');
 
   for (const elem of button.children) {
-    await revealHeading({ elem, config });
+    await animate({ elem, config });
   }
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/embed/uiui-button-example-1-o9xi9?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };

@@ -1,10 +1,10 @@
-import { revealHeading } from './helper';
+import { animate } from './helper';
 
 const config = {
-  translateY: ['100%', 0],
-  translateX: [-40, 0],
+  translateY: [10, 0],
+  translateX: [10, 0],
   translateZ: 0,
-  opacity: [0, 1],
+  easing: 'spring(1, 80, 4, 5)',
 };
 
 export const reveal = async () => {
@@ -14,19 +14,14 @@ export const reveal = async () => {
 
   const buttonFill = document.querySelector('.uiui-button.example-3 span:last-child');
   const align = () => {
-    revealHeading({
+    animate({
       elem: buttonFill,
-      config: {
-        translateY: [10, 0],
-        translateX: [10, 0],
-        translateZ: 0,
-        easing: 'spring(1, 80, 4, 5)',
-      },
+      config,
     });
   };
 
-  const tanslate = () => {
-    revealHeading({
+  const translate = () => {
+    animate({
       elem: buttonFill,
       config: {
         translateY: [0, 10],
@@ -38,5 +33,15 @@ export const reveal = async () => {
   };
 
   button.addEventListener('mouseover', align);
-  button.addEventListener('mouseleave', tanslate);
+  button.addEventListener('mouseleave', translate);
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/embed/uiui-button-example-3-4zovu?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };

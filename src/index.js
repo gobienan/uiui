@@ -2,11 +2,13 @@ import anime from 'animejs';
 import { init as headlines } from './headlines';
 import { init as buttons } from './buttons';
 import { init as spinners } from './spinners';
+import { init as about } from './about';
 
 const pages = {
   headlines,
   buttons,
   spinners,
+  about,
 };
 
 const setIndicator = ({ event, elem, indicatorClass = 'Indicator', loadPage }) => {
@@ -30,6 +32,7 @@ const setIndicator = ({ event, elem, indicatorClass = 'Indicator', loadPage }) =
     pages[target.dataset.page]();
     document.querySelector('body').classList = '';
     document.querySelector('body').classList.add(`is-${target.dataset.page}`);
+    initCodeButton();
   }
 };
 const hideIndicator = ({ indicatorClass }) => {
@@ -50,12 +53,13 @@ const toggleCode = () => {
   document.querySelector('.editor-wrap').classList.toggle('is-visible');
 };
 
+const initCodeButton = () => {
+  const uiuiCodeButtons = [...document.querySelectorAll('.uiui-code')];
+  uiuiCodeButtons.forEach((b) => b.addEventListener('click', toggleCode));
+  document.querySelector('.editor-close-times').addEventListener('click', toggleCode);
+};
+
 window.addEventListener('load', () => {
   setIndicator({ elem: navigationItems[0], loadPage: true });
-  setTimeout(() => {
-    const uiuiCodeButtons = [...document.querySelectorAll('.uiui-code')];
-    console.log(uiuiCodeButtons);
-    uiuiCodeButtons.forEach((b) => b.addEventListener('click', toggleCode));
-    document.querySelector('.editor-close-times').addEventListener('click', toggleCode);
-  }, 600);
+  setTimeout(initCodeButton, 600);
 });

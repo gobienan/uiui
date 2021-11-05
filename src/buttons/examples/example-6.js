@@ -1,11 +1,4 @@
-import { revealHeading } from './helper';
-
-const config = {
-  translateY: ['100%', 0],
-  translateX: [-40, 0],
-  translateZ: 0,
-  opacity: [0, 1],
-};
+import { animate } from './helper';
 
 export const reveal = async () => {
   const button = document.querySelector('.uiui-button.example-6');
@@ -14,7 +7,7 @@ export const reveal = async () => {
 
   const buttonFill = document.querySelector('.uiui-button.example-6 span:last-child');
   const align = () => {
-    revealHeading({
+    animate({
       elem: buttonFill,
       config: {
         width: [button.clientWidth - 100, button.clientWidth],
@@ -27,8 +20,8 @@ export const reveal = async () => {
     });
   };
 
-  const tanslate = () => {
-    revealHeading({
+  const translate = () => {
+    animate({
       elem: buttonFill,
       config: {
         width: [button.clientWidth, button.clientWidth - 100],
@@ -42,5 +35,15 @@ export const reveal = async () => {
   };
 
   button.addEventListener('mouseover', align);
-  button.addEventListener('mouseleave', tanslate);
+  button.addEventListener('mouseleave', translate);
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/embed/uiui-button-example-6-fpjdi?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };

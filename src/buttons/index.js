@@ -60,7 +60,7 @@ const render = () => {
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
-  <button class="uiui-button uiui-button--glow example-1">Try Our SaaS</button>
+  <button class="uiui-button uiui-button--glow example-1">Gloow</button>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button uiui-button--swap example-2" data-back="Tune In Now!"><span>Try Our Podcast 🎙</span></button>
@@ -69,7 +69,7 @@ const render = () => {
   <button class="uiui-button uiui-button--fill example-3"><span>Try Our Project</span></button>
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button uiui-button--goo example-4"><span>Try Our Solution</span></button>
+  <button class="uiui-button uiui-button--goo example-4"><span>goooooey</span></button>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-5">
@@ -79,22 +79,22 @@ const render = () => {
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-6">
-    <span>Your Amazing New Ebook</span>
+    <span>Join Us Today</span>
   </button>
 
 </div>
 <div class="swiper-slide">
-  <button class="uiui-button example-7"  data-back="Hey there 👋"><span>Swuuush</span></button>
+  <button class="uiui-button example-7" data-back="Hey there 👋"><span>Swuuush</span></button>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-8">
-  <span>Sign Up Today 🚀</span>
+  <span>Sign Up Today</span><span>🚀</span>
   </button>
 
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-9">
-     <span>Your Amazing New Game</span>
+     <span>Glitch ⚡️</span>
   </button>
 
 </div>

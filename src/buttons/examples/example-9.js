@@ -1,4 +1,4 @@
-import { revealHeading } from './helper';
+import { animate } from './helper';
 
 export const reveal = async () => {
   const buttonSpan = document.querySelector('.uiui-button.example-9 span');
@@ -9,7 +9,7 @@ export const reveal = async () => {
 
   const glitch = () => {
     const keyframes = new Array(10).fill(0).map(() => ({
-      clipPath: `inset(20% -1px ${(Math.random() * 100).toFixed(0)}% 0)`,
+      clipPath: `inset(10% -1px ${(Math.random() * 100).toFixed(0)}% 0)`,
       translateX: `${Math.random() * 1 - 49}%`,
       translateY: `${Math.random() * 1 - 49}%`,
     }));
@@ -18,7 +18,7 @@ export const reveal = async () => {
       translateX: '-50%',
       translateY: '-50%',
     });
-    revealHeading({
+    animate({
       elem: span,
       config: {
         easing: 'steps(2)',
@@ -30,4 +30,14 @@ export const reveal = async () => {
   };
 
   button.addEventListener('mouseover', glitch);
+  setCode();
+};
+
+const setCode = () => {
+  setTimeout(() => {
+    const editor = document.querySelector('.editor iframe');
+    const url =
+      'https://codesandbox.io/embed/uiui-button-example-9-cw890?fontsize=14&hidenavigation=1&theme=dark';
+    editor.setAttribute('src', url);
+  }, 1000);
 };
