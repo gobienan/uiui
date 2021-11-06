@@ -1,5 +1,8 @@
 body.is-about {
   --color-primary: #937ee1;
+  .swiper {
+    height: auto;
+  }
   .swiper-slide {
     display: block;
     margin: 0 auto;
