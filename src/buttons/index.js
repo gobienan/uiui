@@ -26,7 +26,7 @@ const reveal = {
 export const init = () => {
   render();
   const replay = document.querySelector('.uiui-replay');
-  let index = 1;
+  window.index = 1;
   const handleReplay = () => {
     reveal[index]();
   };
@@ -44,14 +44,14 @@ export const init = () => {
     initialSlide: index - 1,
     on: {
       init: function ({ snapIndex }) {
-        index = snapIndex + 1;
+        window.index = snapIndex + 1;
         reveal[snapIndex + 1]();
       },
     },
   });
 
   swiper.on('slideChange', function ({ snapIndex }) {
-    index = snapIndex + 1;
+    window.index = snapIndex + 1;
     reveal[snapIndex + 1]();
   });
 };

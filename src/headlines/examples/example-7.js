@@ -21,6 +21,7 @@ export const reveal = async () => {
 
 const setCode = () => {
   setTimeout(() => {
+    if (window.innerWidth < 500) return;
     const editor = document.querySelector('.editor iframe');
     const url =
       'https://codesandbox.io/embed/uiui-headline-example-7-x6plw?fontsize=14&hidenavigation=1&theme=dark&codemirror=1';
