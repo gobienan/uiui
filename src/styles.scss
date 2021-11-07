@@ -273,6 +273,22 @@ nav {
     box-shadow: 0 0 0 1px rgba(black, 0.2);
   }
 }
+.ProductHunt {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: block;
+  img {
+    display: block;
+  }
+  @media screen and (max-width: 500px) {
+    transform: scale(0.75);
+    transform-origin: right;
+    bottom: unset;
+    top: 10px;
+    right: 20px;
+  }
+}
 
 path {
   transform-origin: 50% 0%;
