@@ -26,7 +26,7 @@ const render = () => {
   <div class="swiper-slide swiper-slide--last">
       <h1 class="uiui-headline">Hey, I’m Gobie 👋</h1>
       <br>
-      <p>I created this collection for others to play around with! This collection will grow naturally over time. <br> If you have a cool example I am happy to add it as well :)</p>          
+      <p>I created this collection for others to play around with! This collection will grow naturally over time ⏳ <br> If you have a cool example I am happy to add it as well :)</p>          
       <br>
       <p>
       A little bit about me:
