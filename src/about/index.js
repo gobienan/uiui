@@ -16,7 +16,7 @@ export const init = async () => {
       await revealHeading({ elem, config });
     }
     const aboutFollow = document.querySelector('.about-follow');
-    aboutFollow.addEventListener('click', () => plausible('clicked-footer-follow'));
+    aboutFollow.addEventListener('click', () => plausible('clicked-about-follow'));
   }, 1);
 };
 const render = () => {
