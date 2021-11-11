@@ -96,7 +96,7 @@ export const reveal = async () => {
 
   button.addEventListener('mouseover', hover);
   button.addEventListener('mouseover', revert);
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

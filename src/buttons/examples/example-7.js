@@ -38,7 +38,7 @@ export const reveal = async () => {
   };
   button.addEventListener('mouseover', revealBack);
   button.addEventListener('mouseleave', revealFront);
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

@@ -30,7 +30,7 @@ export const reveal = async () => {
   };
 
   button.addEventListener('mouseover', glitch);
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

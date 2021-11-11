@@ -10,7 +10,7 @@ const config = {
 export const reveal = async () => {
   const headline = document.querySelector('.uiui-headline.example-5');
   revealHeading({ elem: headline, config });
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

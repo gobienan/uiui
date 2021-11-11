@@ -1,5 +1,5 @@
 export const reveal = async () => {
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

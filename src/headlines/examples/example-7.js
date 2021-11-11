@@ -16,7 +16,7 @@ export const reveal = async () => {
     await revealHeading({ elem, config });
     elem.previousSibling.style.opacity = 1;
   }
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

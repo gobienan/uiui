@@ -15,7 +15,7 @@ export const reveal = async () => {
   for (const elem of headline.children) {
     await revealHeading({ elem, config });
   }
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

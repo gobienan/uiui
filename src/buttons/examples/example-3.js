@@ -34,7 +34,7 @@ export const reveal = async () => {
 
   button.addEventListener('mouseover', align);
   button.addEventListener('mouseleave', translate);
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

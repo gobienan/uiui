@@ -14,7 +14,7 @@ export const reveal = async () => {
   for (const elem of button.children) {
     await animate({ elem, config });
   }
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {

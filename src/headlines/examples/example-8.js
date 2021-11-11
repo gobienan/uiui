@@ -25,7 +25,7 @@ export const reveal = async () => {
       },
     });
   }, 500);
-  setCode();
+  // setCode();
 };
 
 const setCode = () => {
