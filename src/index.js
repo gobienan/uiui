@@ -91,14 +91,9 @@ const openCode = () => {
 
 const initCodeButton = () => {
   const uiuiCodeButtons = [...document.querySelectorAll('.uiui-code')];
-  if (window.innerWidth < 500) {
-    uiuiCodeButtons.forEach((b, i) => {
-      b.addEventListener('click', openCode);
-    });
-  } else {
-    uiuiCodeButtons.forEach((b) => b.addEventListener('click', toggleCode));
-    document.querySelector('.editor-close-times').addEventListener('click', toggleCode);
-  }
+  uiuiCodeButtons.forEach((b, i) => {
+    b.addEventListener('click', openCode);
+  });
 };
 
 window.addEventListener('load', () => {
