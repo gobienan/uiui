@@ -14,7 +14,7 @@ export const reveal = async () => {
         elem,
         config: {
           translateX: ['-50%', '-50%'],
-          translateY: i === 0 ? ['-50%', '-200%'] : ['200%', '-50%'],
+          translateY: i === 0 ? ['-50%', '-300%'] : ['300%', '-50%'],
           translateZ: 0,
           easing: 'spring(1, 80, 13, 5)',
         },
@@ -29,7 +29,7 @@ export const reveal = async () => {
         elem,
         config: {
           translateX: ['-50%', '-50%'],
-          translateY: i === 0 ? ['-200%', '-50%'] : ['-50%', '200%'],
+          translateY: i === 0 ? ['-300%', '-50%'] : ['-50%', '300%'],
           translateZ: 0,
           easing: 'spring(1, 60, 10, 3)',
         },

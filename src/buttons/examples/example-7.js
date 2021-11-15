@@ -13,8 +13,8 @@ export const reveal = async () => {
       animate({
         elem,
         config: {
-          translateX: i === 0 ? ['0', `${button.clientWidth / 1.5}`] : ['-100%', '-50%'],
-          translateY: i === 0 ? ['0', `-${button.clientHeight / 1.5}`] : ['100%', '-50%'],
+          translateX: i === 0 ? ['0', `${button.clientWidth / 1.5}`] : ['-200%', '-50%'],
+          translateY: i === 0 ? ['0', `-${button.clientHeight / 1.5}`] : ['200%', '-50%'],
           translateZ: 0,
           easing: 'spring(1, 80, 20, 9)',
         },
@@ -28,8 +28,8 @@ export const reveal = async () => {
       animate({
         elem,
         config: {
-          translateX: i === 0 ? [`${button.clientWidth / 1.5}`, '0'] : ['-50%', '-100%'],
-          translateY: i === 0 ? [`-${button.clientHeight / 1.5}`, '0'] : ['-50%', '100%'],
+          translateX: i === 0 ? [`${button.clientWidth / 1.5}`, '0'] : ['-50%', '-200%'],
+          translateY: i === 0 ? [`-${button.clientHeight / 1.5}`, '0'] : ['-50%', '200%'],
           translateZ: 0,
           easing: 'spring(1, 80, 20, 9)',
         },
@@ -39,14 +39,4 @@ export const reveal = async () => {
   button.addEventListener('mouseover', revealBack);
   button.addEventListener('mouseleave', revealFront);
   // setCode();
-};
-
-const setCode = () => {
-  setTimeout(() => {
-    if (window.innerWidth < 500) return;
-    const editor = document.querySelector('.editor iframe');
-    const url =
-      'https://codesandbox.io/embed/uiui-button-example-7-3rvyh?fontsize=14&hidenavigation=1&theme=dark&codemirror=1';
-    editor.setAttribute('src', url);
-  }, 1000);
 };
