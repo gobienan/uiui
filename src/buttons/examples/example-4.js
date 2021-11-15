@@ -79,6 +79,7 @@ export const reveal = async () => {
           scale: [0.9, 0],
           translateZ: 0,
           easing: 'spring(1, 50, 40, 3)',
+          complete: revert,
         },
         '-=1200',
       );
@@ -94,8 +95,7 @@ export const reveal = async () => {
     blobBottomRight.style.scale = 1;
   };
 
-  button.addEventListener('mouseover', hover);
-  button.addEventListener('mouseover', revert);
+  button.addEventListener('click', hover);
   // setCode();
 };
 

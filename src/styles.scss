@@ -132,6 +132,8 @@ nav {
   min-height: clamp(120px, 30vh, 800px);
   position: relative;
   border-radius: 10px;
+  overflow: hidden;
+
   @media screen and (max-width: 500px) {
     padding: 20px;
   }
