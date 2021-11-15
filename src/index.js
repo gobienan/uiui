@@ -49,10 +49,6 @@ navigationItems.forEach((i) => {
   i.addEventListener('mouseleave', (event) => hideIndicator({ event, indicatorClass: 'HiddenIndicator' }));
 });
 
-const toggleCode = () => {
-  document.querySelector('.editor-wrap').classList.toggle('is-visible');
-};
-
 var headlineUrls = [
   'https://codesandbox.io/embed/uiui-headline-example-1-qs5uw?fontsize=14&hidenavigation=1&theme=dark&codemirror=1',
   'https://codesandbox.io/embed/uiui-headline-example-2-7y6ne?fontsize=14&hidenavigation=1&theme=dark&codemirror=1',
@@ -80,10 +76,10 @@ const urls = {
   ['is-buttons']: buttonUrls,
 };
 
-const openCode = () => {
+const openCode = (index) => {
   const anchor = document.createElement('a');
   anchor.target = '_blank';
-  anchor.href = urls[document.body.classList][window.index - 1];
+  anchor.href = urls[document.body.classList][index];
   anchor.rel = 'noopener noreferrer';
   anchor.click();
   anchor.remove();
@@ -92,7 +88,7 @@ const openCode = () => {
 const initCodeButton = () => {
   const uiuiCodeButtons = [...document.querySelectorAll('.uiui-code')];
   uiuiCodeButtons.forEach((b, i) => {
-    b.addEventListener('click', openCode);
+    b.addEventListener('click', () => openCode(i));
   });
 };
 

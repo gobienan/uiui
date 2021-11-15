@@ -1,5 +1,4 @@
 import './styles.scss';
-import Swiper from 'swiper/swiper-bundle';
 import { reveal as reveal1 } from './examples/example-1';
 import { reveal as reveal2 } from './examples/example-2';
 import { reveal as reveal3 } from './examples/example-3';
@@ -26,34 +25,33 @@ const reveal = {
 
 export const init = () => {
   render();
-  const replay = document.querySelector('.uiui-replay');
-  window.index = 1;
-  const handleReplay = () => {
-    reveal[index]();
+  const replayButtons = document.querySelectorAll('.uiui-replay');
+  const handleReplay = (index) => {
+    reveal[index + 1]();
   };
-  replay.addEventListener('click', handleReplay);
 
-  const swiper = new Swiper('.mySwiper', {
-    grabCursor: true,
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    initialSlide: index - 1,
-    on: {
-      init: function ({ snapIndex }) {
-        window.index = snapIndex + 1;
-        reveal[snapIndex + 1]();
-      },
-    },
+  const slides = document.querySelectorAll('.swiper-slide');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2,
+  };
+  const slideObserver = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        const slide = entry.target;
+        const index = [...slide.parentNode.children].findIndex((e) => e.isEqualNode(slide));
+        reveal[index + 1]();
+        slideObserver.unobserve(slide);
+      }
+    });
+  }, options);
+
+  slides.forEach(function (image) {
+    slideObserver.observe(image);
   });
-
-  swiper.on('slideChange', function ({ snapIndex }) {
-    window.index = snapIndex + 1;
-    reveal[snapIndex + 1]();
+  replayButtons.forEach((r, i) => {
+    r.addEventListener('click', () => handleReplay(i));
   });
 };
 
@@ -63,20 +61,36 @@ const render = () => {
 <div class="swiper-wrapper">
 <div class="swiper-slide">
   <h1 class="uiui-headline example-1">Your Amazing New SaaS</h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
   
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-2">Your Amazing New Podcast</h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
   
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-3">Your Amazing New Project</h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
   
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-4">Your Amazing New Solution</h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
   
 
 </div>
@@ -84,6 +98,11 @@ const render = () => {
   <h1 class="uiui-headline uiui-gradient-copy example-5">
     <span>Your Amazing New Product</span>
   </h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+  
   
 
 </div>
@@ -91,16 +110,30 @@ const render = () => {
   <h1 class="uiui-headline uiui-underline-copy example-6">
     Your <span class="uiui-highlight">Amazing</span> New Ebook
   </h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+  
   
 
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-7 uiui-blocks">Your Amazing New Headline</h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <h1 class="uiui-headline example-8 uiui-layers">
     Your Amazing New <span class="uiui-highlight"><span>App</span></span>
   </h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+  
   
 
 </div>
@@ -108,6 +141,11 @@ const render = () => {
   <h1 class="uiui-headline example-9 uiui-glitch">
     Your <span class="uiui-highlight"><span>Amazing</span></span> New Game
   </h1>
+  <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+  
   
 
 </div>
@@ -137,19 +175,16 @@ const render = () => {
         ></path>
       </svg>
     </h1>
+    <div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+    
     
 
   </div>
 </div>
 </div>
-<!-- Swiper -->
-<div class="swiper-pagination"></div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-</div>
-<div class="uiui-toolbar">
-<span class="uiui-code">Code</span>
-<span class="uiui-replay">replay</span>
 </div>
 </div>
 `;

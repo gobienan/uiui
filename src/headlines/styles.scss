@@ -6,14 +6,14 @@ body.is-headlines {
 
 .uiui-headline {
   overflow: hidden;
-  font-size: clamp(1rem, 6vw, 50px);
+  font-size: clamp(2rem, 6vw, 50px);
   perspective: 500px;
   perspective-origin: center;
   text-align: center;
   margin: 0;
 
   @media screen and (max-width: 500px) {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }
 

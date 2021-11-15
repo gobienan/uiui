@@ -25,56 +25,81 @@ const reveal = {
 };
 export const init = () => {
   render();
-  const replay = document.querySelector('.uiui-replay');
-  window.index = 1;
-  const handleReplay = () => {
-    reveal[index]();
+  const replayButtons = document.querySelectorAll('.uiui-replay');
+  const handleReplay = (index) => {
+    reveal[index + 1]();
   };
-  replay.addEventListener('click', handleReplay);
 
-  const swiper = new Swiper('.mySwiper', {
-    grabCursor: true,
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    initialSlide: index - 1,
-    on: {
-      init: function ({ snapIndex }) {
-        window.index = snapIndex + 1;
-        reveal[snapIndex + 1]();
-      },
-    },
+  const slides = document.querySelectorAll('.swiper-slide');
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2,
+  };
+  const slideObserver = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        const slide = entry.target;
+        const index = [...slide.parentNode.children].findIndex((e) => e.isEqualNode(slide));
+        reveal[index + 1]();
+        slideObserver.unobserve(slide);
+      }
+    });
+  }, options);
+
+  slides.forEach(function (image) {
+    slideObserver.observe(image);
   });
-
-  swiper.on('slideChange', function ({ snapIndex }) {
-    window.index = snapIndex + 1;
-    reveal[snapIndex + 1]();
+  replayButtons.forEach((r, i) => {
+    r.addEventListener('click', () => handleReplay(i));
   });
 };
+
 const render = () => {
   document.querySelector('#app').innerHTML = `
 <div class="swiper mySwiper">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
   <button class="uiui-button uiui-button--glow example-1">Gloow</button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button uiui-button--swap example-2" data-back="Tune In Now!"><span>Try Our Podcast 🎙</span></button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button uiui-button--fill example-3"><span>Try Our Project</span></button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button uiui-button--goo example-4"><span>goooooey</span></button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-5">
     <span>Try Our Product</span>
   </button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 
 </div>
 <div class="swiper-slide">
@@ -82,20 +107,40 @@ const render = () => {
     <span>Join Us Today</span>
   </button>
 
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-7" data-back="Hey there 👋"><span>Swuuush</span></button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-8">
   <span>Sign Up Today</span><span>🚀</span>
   </button>
 
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
+
 </div>
 <div class="swiper-slide">
   <button class="uiui-button example-9">
      <span>Glitch ⚡️</span>
   </button>
+
+<div class="uiui-toolbar">
+<span class="uiui-code">Code</span>
+<span class="uiui-replay">replay</span>
+</div>
 
 </div>
 <div class="swiper-slide swiper-slide--last">
@@ -126,16 +171,6 @@ const render = () => {
     </div>
   </div>
 </div>
-<!-- Swiper -->
-<div class="swiper-pagination"></div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-</div>
-<div class="uiui-toolbar">
-<span class="uiui-code">Code</span>
-<span class="uiui-replay">replay</span>
-</div>
-
 </div>
 `;
 };
