@@ -343,28 +343,3 @@ path {
   top: 0;
   left: 0;
 }
-
-@keyframes path0 {
-  0% {
-    transform: rotateZ(-10deg) translateZ(0);
-  }
-  100% {
-    transform: rotateZ(10deg) translateZ(0);
-  }
-}
-@keyframes path1 {
-  0% {
-    transform: rotateZ(-10deg) translateZ(0);
-  }
-  100% {
-    transform: rotateZ(10deg) translateZ(0);
-  }
-}
-@keyframes path2 {
-  0% {
-    transform: rotateZ(20deg) translateZ(0);
-  }
-  100% {
-    transform: rotateZ(-20deg) translateZ(0);
-  }
-}
